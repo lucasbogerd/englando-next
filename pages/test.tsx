@@ -88,8 +88,11 @@ export function QuestionAnswerSpan({
 		<>
 			<input
 				type="text"
-				className="w-20"
-				{...registerFunction(nameToRegister, { required: true })}
+				className={`w-16`}
+				{...registerFunction(nameToRegister, {
+					required: true,
+					validate: { isCorrect: (value) => value === answer.Answer },
+				})}
 			/>
 			<span>({answer.Suggestion})</span>
 		</>
