@@ -1,3 +1,10 @@
+import {
+	useForm,
+	SubmitHandler,
+	UseFormRegister,
+	FieldValues,
+} from 'react-hook-form'
+
 import test from '../data/example-test'
 import {
 	ParseQuestionString,
@@ -5,25 +12,42 @@ import {
 } from '../shared/parseQuestionText'
 
 export default function Test(): JSX.Element {
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm()
 	const data = test()
+	const onSubmit = (data) => console.log(data)
 
 	return (
 		<div className="mx-auto my-auto">
 			<h1 className="mb-5 text-3xl">{data.testName}</h1>
-			<div>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				{data.questions.map((q, i) => {
 					return (
 						<div key={`question-${Math.random()}`}>
-							<Question question={q} key={`question-${i}`} />
+							<Question
+								question={q}
+								key={`question-${i}`}
+								registerFunction={register}
+								nameToRegister={`registername-${i}`}
+							/>
 						</div>
 					)
 				})}
-			</div>
+				<input type="submit" value="controleer" />
+			</form>
 		</div>
 	)
 }
 
-export function Question({ question }): JSX.Element {
+export function Question({
+	question,
+	registerFunction,
+	nameToRegister,
+}): JSX.Element {
 	let renderFragments: JSX.Element[] = []
 
 	const parsedQuestion = ParseQuestionString(question)
@@ -38,6 +62,8 @@ export function Question({ question }): JSX.Element {
 				<QuestionAnswerSpan
 					answer={parsedQuestion.Answers[i]}
 					key={`answer-${Math.random()}`}
+					registerFunction={registerFunction}
+					nameToRegister={nameToRegister}
 				/>
 				// <span>{parsedQuestion.Answers[i].Answer}</span>
 			),
@@ -49,12 +75,22 @@ export function Question({ question }): JSX.Element {
 
 type QuestionAnswerSpanProps = {
 	answer: QuestionAnswer
+	registerFunction: UseFormRegister<FieldValues>
+	nameToRegister: string
 }
 
-export function QuestionAnswerSpan({ answer }: QuestionAnswerSpanProps) {
+export function QuestionAnswerSpan({
+	answer,
+	registerFunction,
+	nameToRegister,
+}: QuestionAnswerSpanProps) {
 	return (
 		<>
-			<input type="text" className="w-20" />
+			<input
+				type="text"
+				className="w-20"
+				{...registerFunction(nameToRegister, { required: true })}
+			/>
 			<span>({answer.Suggestion})</span>
 		</>
 	)
