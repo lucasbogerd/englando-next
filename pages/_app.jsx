@@ -1,8 +1,11 @@
 import 'tailwindcss/tailwind.css'
 
-// eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />
+	return (
+		<div className="flex w-screen h-screen">
+			<Component {...pageProps} />
+		</div>
+	)
 }
 
 export default MyApp

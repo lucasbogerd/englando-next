@@ -1,6 +1,7 @@
 {
-	"conventionalCommits.scopes": ["global"],
+	"conventionalCommits.scopes": ["global", "test"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
-	}
+	},
+	"jira-plugin.workingProject": ""
 }
