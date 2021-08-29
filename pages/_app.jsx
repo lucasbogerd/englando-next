@@ -2,9 +2,12 @@ import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<div className="flex w-screen h-screen">
-			<Component {...pageProps} />
-		</div>
+		<>
+			<link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
+			<div className="flex w-screen h-screen bg-gray-50">
+				<Component {...pageProps} />
+			</div>
+		</>
 	)
 }
 

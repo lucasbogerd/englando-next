@@ -29,41 +29,65 @@ const ExamPage = ({ exam }: Props) => {
 	const onSubmit = (data) => console.log(data)
 
 	return (
-		<div>
-			<h1>{exam.Name}</h1>
+		<div className="max-w-2xl px-8 pt-24 mx-auto bg-blue-100">
+			<h1 className="mb-10 text-2xl font-bold">{exam.Name}</h1>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<ul>
+				<ul className="mb-8">
 					{exam.Exercises.map((exercise, i) => {
 						let questionCount = -1
 						return (
-							<li key={`exercise-${i}`}>
+							<li
+								key={`exercise-${i}`}
+								className="p-3 my-2 bg-white rounded-md shadow-md"
+							>
 								{exercise.Parts.map((part, j) => {
 									if (typeof part === 'string') {
 										return <span key={`part-${j}`}>{part}</span>
 									}
 
 									questionCount++
+
+									const currentQuestionId = `exercise-${i}_question-${questionCount}`
 									return (
-										<input
-											key={`part-${j}`}
-											className={`border border-gray-100 ${
-												errors[`exercise-${i}_question-${questionCount}`] &&
-												isSubmitted
-													? 'bg-red-500'
-													: 'bg-gray-50'
-											}`}
-											{...register(`exercise-${i}_question-${questionCount}`, {
-												validate: (value) => value === part.Answer,
-											})}
-										/>
+										<span key={`part-${j}`}>
+											<input
+												name={currentQuestionId}
+												id={currentQuestionId}
+												className={`px-2 py-0.5 w-32 transition duration-500 ${
+													errors[currentQuestionId] && isSubmitted
+														? 'bg-red-200'
+														: !errors[currentQuestionId] && isSubmitted
+														? 'bg-green-200'
+														: 'bg-gray-200'
+												}`}
+												{...register(
+													`exercise-${i}_question-${questionCount}`,
+													{
+														required: true,
+														validate: (value) => value === part.Answer,
+													}
+												)}
+											/>
+											<label
+												htmlFor={`exercise-${i}_question-${questionCount}`}
+												className="ml-1 italic font-semibold"
+											>
+												({part.Question})
+											</label>
+										</span>
 									)
 								})}
 							</li>
 						)
 					})}
 				</ul>
-				<button type="submit">Controleren</button>
+				<button
+					type="submit"
+					className="px-4 py-2 text-white transition duration-500 bg-blue-500 rounded-md shadow-md hover:bg-blue-400 focus:shadow-none focus:transform focus:translate-y-0.5 focus:duration-100"
+				>
+					Check
+				</button>
 			</form>
 		</div>
 	)
