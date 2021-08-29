@@ -54,7 +54,7 @@ const ExamPage = ({ exam }: Props) => {
 											<input
 												name={currentQuestionId}
 												id={currentQuestionId}
-												className={`px-2 py-0.5 w-32 transition duration-500 ${
+												className={`px-2 py-0.5 w-16 md:w-32 transition duration-500 rounded ${
 													errors[currentQuestionId] && isSubmitted
 														? 'bg-red-200'
 														: !errors[currentQuestionId] && isSubmitted
