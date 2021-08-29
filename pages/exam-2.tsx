@@ -29,7 +29,7 @@ const ExamPage = ({ exam }: Props) => {
 	const onSubmit = (data) => console.log(data)
 
 	return (
-		<div className="max-w-2xl px-8 pt-24 mx-auto bg-blue-100">
+		<div className="max-w-2xl px-8 pt-8 mx-auto bg-blue-100 md:pt-24">
 			<h1 className="mb-10 text-2xl font-bold">{exam.Name}</h1>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
