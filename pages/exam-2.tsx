@@ -29,8 +29,8 @@ const ExamPage = ({ exam }: Props) => {
 	const onSubmit = (data) => console.log(data)
 
 	return (
-		<div className="max-w-2xl px-8 pt-8 mx-auto bg-blue-100 md:pt-24">
-			<h1 className="mb-10 text-2xl font-bold">{exam.Name}</h1>
+		<div className="max-w-2xl px-8 pt-8 pb-6 mx-auto bg-blue-100 md:pb-8 md:pt-12">
+			<h1 className="mb-8 text-2xl font-bold">{exam.Name}</h1>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<ul className="mb-8">
@@ -39,7 +39,7 @@ const ExamPage = ({ exam }: Props) => {
 						return (
 							<li
 								key={`exercise-${i}`}
-								className="p-3 my-2 bg-white rounded-md shadow-md"
+								className="p-3 my-3.5 bg-white rounded-md shadow-md"
 							>
 								{exercise.Parts.map((part, j) => {
 									if (typeof part === 'string') {
