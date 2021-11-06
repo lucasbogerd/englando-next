@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { Exam, Exercise } from '../shared/types'
 import { sampleExam } from '../shared/sample-data'
 import { parseExam } from '../shared/logic/parseExam'
+import React from 'react'
 
 type Props = {
 	exam: Exam
@@ -17,13 +18,12 @@ const ConvertToInitialValues = (exercises: Exercise[]) => {
 	return questionAnswers
 }
 
-const ExamPage = ({ exam }: Props) => {
+const ExamPage = ({ exam }: Props): JSX.Element => {
 	ConvertToInitialValues(exam.Exercises)
 
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors, isSubmitted },
 	} = useForm()
 	const onSubmit = (data) => console.log(data)

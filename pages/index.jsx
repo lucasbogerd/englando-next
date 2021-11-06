@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Home() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2">

@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css'
 
+// eslint-disable-next-line
 function MyApp({ Component, pageProps }) {
 	return (
 		<>

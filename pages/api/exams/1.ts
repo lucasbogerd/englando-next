@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Handler(req: NextApiRequest, res: NextApiResponse) {
 	res.status(200).json({
 		name: 'Example Test',
