@@ -1,7 +1,10 @@
 const IndexPage = (): JSX.Element => {
 	return (
 		<div className="container mx-auto sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
-			<h1 className="text-2xl mt-14 mb-4 font-bold">
+			<a className="block text-xs mt-14" href="/exam-2">
+				geheime link
+			</a>
+			<h1 className="text-2xl mb-4 font-bold">
 				Choose the tenses you want to practise with:
 			</h1>
 			<fieldset className="space-y-5">
