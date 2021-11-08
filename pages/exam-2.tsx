@@ -65,7 +65,8 @@ const ExamPage = ({ exam }: Props): JSX.Element => {
 													`exercise-${i}_question-${questionCount}`,
 													{
 														required: true,
-														validate: (value) => value === part.Answer,
+														validate: (value: string) =>
+															value.toLowerCase() === part.Answer.toLowerCase(),
 													}
 												)}
 											/>
