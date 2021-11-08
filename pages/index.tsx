@@ -1,10 +1,7 @@
 const IndexPage = (): JSX.Element => {
 	return (
 		<div className="container mx-auto sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
-			<a className="block text-xs mt-14" href="/exam-2">
-				geheime link
-			</a>
-			<h1 className="text-2xl mb-4 font-bold">
+			<h1 className="text-2xl mb-4 font-bold mt-14">
 				Choose the tenses you want to practise with:
 			</h1>
 			<fieldset className="space-y-5">
@@ -73,12 +70,14 @@ const IndexPage = (): JSX.Element => {
 				</div>
 			</fieldset>
 			{/* animate if one or more options selected */}
-			<button
-				type="button"
-				className="inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black animate-bounce hover:text-englando-black transition duration-300"
-			>
-				Go!
-			</button>
+			<a href="/exam-2">
+				<button
+					type="button"
+					className="inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black animate-bounce hover:text-englando-black transition duration-300"
+				>
+					Go!
+				</button>
+			</a>
 		</div>
 	)
 }
