@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 import { useForm } from 'react-hook-form'
 
 import { Exam, Exercise } from '../shared/types'
-import { sampleExam } from '../shared/sample-data'
+import { sampleExam } from '../shared/exams/present-simple'
 import { parseExam } from '../shared/logic/parseExam'
 import React from 'react'
 
