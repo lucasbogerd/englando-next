@@ -17,39 +17,48 @@ const IndexPage = (): JSX.Element => {
 				<div className="relative flex items-start">
 					<div className="flex items-center h-5">
 						<input
-							id="comments"
-							aria-describedby="comments-description"
-							name="comments"
+							id="present-simple"
+							aria-describedby="present-simple-description"
+							name="present-simple"
 							type="checkbox"
 							className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
 						/>
 					</div>
 					<div className="ml-3 text-sm">
-						<label htmlFor="comments" className="font-medium">
+						<label htmlFor="present-simple" className="font-medium">
 							Present simple
 						</label>
-						{/* <p id="comments-description" className="text-gray-500">
-							Get notified when someones posts a comment on a posting.
-						</p> */}
+						<p id="present-simple-description" className="text-gray-500">
+							Example:{' '}
+							<span className="italic">
+								"My brother studies English at Cambridge University."
+							</span>
+						</p>
 					</div>
 				</div>
 				<div className="relative flex items-start">
 					<div className="flex items-center h-5">
 						<input
-							id="comments"
-							aria-describedby="comments-description"
-							name="comments"
+							id="present-continuous"
+							aria-describedby="present-continuous-description"
+							name="present-continuous"
 							type="checkbox"
 							className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
 						/>
 					</div>
 					<div className="ml-3 text-sm">
-						<label htmlFor="comments" className="font-medium text-gray-700">
+						<label
+							htmlFor="present-continuous"
+							className="font-medium text-gray-700"
+						>
 							Present continuous
 						</label>
-						{/* <p id="comments-description" className="text-gray-500">
-							Get notified when someones posts a comment on a posting.
-						</p> */}
+						<p id="present-continuous-description" className="text-gray-500">
+							Example:{' '}
+							<span className="italic">
+								"My brother is studying English at the moment."
+							</span>
+						</p>
 					</div>
 				</div>
 				<h2 className="mt-4 text-englando-lavender font-bold text-lg">
@@ -58,20 +67,24 @@ const IndexPage = (): JSX.Element => {
 				<div className="relative flex items-start">
 					<div className="flex items-center h-5">
 						<input
-							id="comments"
-							aria-describedby="comments-description"
-							name="comments"
+							id="past-simple"
+							aria-describedby="past-simple-description"
+							name="past-simple"
 							type="checkbox"
 							className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
 						/>
 					</div>
 					<div className="ml-3 text-sm">
-						<label htmlFor="comments" className="font-medium text-gray-700">
+						<label htmlFor="past-simple" className="font-medium text-gray-700">
 							Past simple
 						</label>
-						{/* <p id="comments-description" className="text-gray-500">
-							Get notified when someones posts a comment on a posting.
-						</p> */}
+						<p id="past-simple-description" className="text-gray-500">
+							Example:{' '}
+							<span className="italic">
+								"My brother studied English when he was at Cambridge
+								University."
+							</span>
+						</p>
 					</div>
 				</div>
 			</fieldset>
