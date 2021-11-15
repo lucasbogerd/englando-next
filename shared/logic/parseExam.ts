@@ -17,7 +17,9 @@ export const parseExercise = (exerciseString: string): Exercise => {
 
 	return {
 		Parts: unparsedExerciseParts.map((unparsedExercisePart) =>
-			unparsedExercisePart.charAt(0) === '?'
+			unparsedExercisePart.charAt(0) === '?' &&
+			unparsedExercisePart.charAt(1) !== ' ' && // Needed to allow 'Why are you {?running=running}? Are you afraid?'
+			unparsedExercisePart.charAt(1) !== '' // Needed to allow 'Why are you {?running=running}?'
 				? parseQuestionAnswer(unparsedExercisePart)
 				: unparsedExercisePart
 		),
