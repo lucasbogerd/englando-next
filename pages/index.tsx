@@ -31,7 +31,7 @@ const IndexPage = (): JSX.Element => {
 						<p id="present-simple-description" className="text-gray-500">
 							Example:{' '}
 							<span className="italic">
-								"My brother studies English at Cambridge University."
+								&#34;My brother studies English at Cambridge University.&#34;
 							</span>
 						</p>
 					</div>
@@ -56,7 +56,7 @@ const IndexPage = (): JSX.Element => {
 						<p id="present-continuous-description" className="text-gray-500">
 							Example:{' '}
 							<span className="italic">
-								"My brother is studying English at the moment."
+								&#34;My brother is studying English at the moment.&#34;
 							</span>
 						</p>
 					</div>
@@ -81,8 +81,8 @@ const IndexPage = (): JSX.Element => {
 						<p id="past-simple-description" className="text-gray-500">
 							Example:{' '}
 							<span className="italic">
-								"My brother studied English when he was at Cambridge
-								University."
+								&#34;My brother studied English when he was at Cambridge
+								University.&#34;
 							</span>
 						</p>
 					</div>
