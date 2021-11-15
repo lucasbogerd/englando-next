@@ -2042,6 +2042,11 @@ jest-worker@27.0.0-next.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jotai@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/jotai/-/jotai-1.4.3.tgz#fb5ae5ac44c28a7b16edc478aaa6d5816e0df4cc"
+  integrity sha512-ttgbxK/DqHq2CFg0/qcRu2G4QpSPz8/PdvzskFAIyjgOadFOMIpOFxyDz1P975RjZKI3Bul6fm+X5n80HJ+NFg==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
