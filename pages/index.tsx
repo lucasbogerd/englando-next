@@ -1,3 +1,9 @@
+import { atom } from 'jotai'
+
+export const isPresentSimpleSelectedAtom = atom(false)
+export const isPresentContinuousSelectedAtom = atom(false)
+export const isPastSimpleSelectedAtom = atom(false)
+
 const IndexPage = (): JSX.Element => {
 	return (
 		<div className="container mx-auto sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
