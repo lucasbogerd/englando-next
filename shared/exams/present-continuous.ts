@@ -1,8 +1,8 @@
 import { UnparsedExam } from '../types'
 
 /* eslint-disable prettier/prettier */
-export const sampleExam: UnparsedExam = {
-	name: 'Example Test',
+export const presentContinuous: UnparsedExam = {
+	name: 'Present Continuous',
 	exercises: [
 		'My little brother {?watch=is watching} TV right now.',
 		'At the moment it {?rain=is raining}.',

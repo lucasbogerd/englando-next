@@ -1,8 +1,8 @@
 import { UnparsedExam } from '../types'
 
 /* eslint-disable prettier/prettier */
-export const sampleExam: UnparsedExam = {
-	name: 'Example Test',
+export const pastSimple: UnparsedExam = {
+	name: 'Past Simple',
 	exercises: [
 		'I {?see=saw} your sister yesterday.',
 		'When we were in Africa, it {?rain=rained} a lot.',

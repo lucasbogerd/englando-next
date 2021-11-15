@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 import { useForm } from 'react-hook-form'
 
 import { Exam, Exercise } from '../shared/types'
-import { sampleExam } from '../shared/exams/present-simple'
+import { presentSimple } from '../shared/exams/present-simple'
 import { parseExam } from '../shared/logic/parseExam'
 import React from 'react'
 
@@ -95,7 +95,7 @@ const ExamPage = ({ exam }: Props): JSX.Element => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	return { props: { exam: parseExam(sampleExam) } }
+	return { props: { exam: parseExam(presentSimple) } }
 }
 
 export default ExamPage
