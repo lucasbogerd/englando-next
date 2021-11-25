@@ -11,7 +11,7 @@ import {
 	isPastSimpleSelectedAtom,
 	isPresentContinuousSelectedAtom,
 	isPresentSimpleSelectedAtom,
-} from '.'
+} from '../shared/atoms/store'
 
 const ConvertToInitialValues = (exercises: Exercise[]) => {
 	const questionAnswers = exercises.flatMap((exercise) =>
@@ -22,37 +22,60 @@ const ConvertToInitialValues = (exercises: Exercise[]) => {
 }
 
 const PracticePage = (): JSX.Element => {
-	const [isPresentSimpleSelected] = useAtom(isPresentSimpleSelectedAtom)
-	const [isPresentContinuousSelected] = useAtom(isPresentContinuousSelectedAtom)
 	const [isPastSimpleSelected] = useAtom(isPastSimpleSelectedAtom)
+	const [isPresentContinuousSelected, setIsPresentContinuousSelected] = useAtom(
+		isPresentContinuousSelectedAtom
+	)
+	const [isPresentSimpleSelected, setIsPresentSimpleSelected] = useAtom(
+		isPresentSimpleSelectedAtom
+	)
+
+	if (isPresentSimpleSelected) {
+		console.log('yup!')
+	} else {
+		console.log('nope!')
+	}
 
 	if (
 		!isPastSimpleSelected &&
-		!isPresentContinuousSelected &&
-		!isPresentSimpleSelected
+		!isPresentSimpleSelected &&
+		!isPresentContinuousSelected
 	) {
 		return <div>ERROR</div>
 	}
 
+	// Get all relevent exercises in one array and shuffle the array
 	useEffect(() => {
-		const selectedQuestions: string[] = []
+		const allExercises: string[] = []
 
-		for (let i = 0; i < 50; i++) {
-			if (selectedQuestions.length >= 15) {
-				break
-			}
+		// Add exercises if selected
+		if (isPastSimpleSelected) allExercises.concat(pastSimple.exercises)
+		if (isPresentContinuousSelected)
+			allExercises.concat(presentContinuous.exercises)
+		if (isPresentSimpleSelected) allExercises.concat(presentSimple.exercises)
 
-			const tenseToPickFrom = 'asdf'
+		// Shuffle with Fisher-Yates
+		// Source: https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
+		for (let i = allExercises.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1))
+			const temp = allExercises[i]
+			allExercises[i] = allExercises[j]
+			allExercises[j] = temp
 		}
+
+		console.log('present simple:')
+		console.log(isPresentSimpleSelected)
+		console.log('past simple:')
+		console.log(isPastSimpleSelected)
+		console.log('present continuous:')
+		console.log(isPresentContinuousSelected)
 	}, [
 		isPresentSimpleSelected,
 		isPresentContinuousSelected,
 		isPastSimpleSelected,
 	])
 
-	//ConvertToInitialValues()
-
-	return <div>HET WERKT</div>
+	return <div>{isPastSimpleSelected}</div>
 }
 
 export default PracticePage

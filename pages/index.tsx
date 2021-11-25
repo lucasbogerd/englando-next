@@ -1,10 +1,11 @@
-import { atom } from 'jotai'
-
-export const isPresentSimpleSelectedAtom = atom(false)
-export const isPresentContinuousSelectedAtom = atom(false)
-export const isPastSimpleSelectedAtom = atom(false)
+import { useAtom } from 'jotai'
+import { isPresentSimpleSelectedAtom } from '../shared/atoms/store'
 
 const IndexPage = (): JSX.Element => {
+	const [isPresentSimpleSelected, setIsPresentSimpleSelected] = useAtom(
+		isPresentSimpleSelectedAtom
+	)
+
 	return (
 		<div className="container mx-auto sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
 			<h1 className="text-2xl mb-4 font-bold mt-14">
@@ -22,6 +23,9 @@ const IndexPage = (): JSX.Element => {
 							name="present-simple"
 							type="checkbox"
 							className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
+							onClick={() => {
+								setIsPresentSimpleSelected(!isPresentSimpleSelected)
+							}}
 						/>
 					</div>
 					<div className="ml-3 text-sm">
@@ -89,7 +93,7 @@ const IndexPage = (): JSX.Element => {
 				</div>
 			</fieldset>
 			{/* animate if one or more options selected */}
-			<a href="/exam-2">
+			<a href="/practice">
 				<button
 					type="button"
 					className="inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black animate-bounce hover:text-englando-black transition duration-300"
