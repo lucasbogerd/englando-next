@@ -1,10 +1,8 @@
 import { useAtom } from 'jotai'
-import { isPresentSimpleSelectedAtom } from '../shared/atoms/store'
+import { selectedTensesAtom } from '../shared/atoms/store'
 
 const IndexPage = (): JSX.Element => {
-	const [isPresentSimpleSelected, setIsPresentSimpleSelected] = useAtom(
-		isPresentSimpleSelectedAtom
-	)
+	const [selectedTenses, setSelectedTenses] = useAtom(selectedTensesAtom)
 
 	return (
 		<div className="container mx-auto sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
@@ -24,7 +22,11 @@ const IndexPage = (): JSX.Element => {
 							type="checkbox"
 							className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
 							onClick={() => {
-								setIsPresentSimpleSelected(!isPresentSimpleSelected)
+								setSelectedTenses((tenses) => ({
+									...tenses,
+									presentSimple: !tenses.presentSimple,
+								}))
+								console.log(selectedTenses)
 							}}
 						/>
 					</div>

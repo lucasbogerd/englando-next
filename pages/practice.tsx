@@ -3,15 +3,8 @@ import { useForm } from 'react-hook-form'
 
 import { Exam, Exercise } from '../shared/types'
 
-import { presentSimple } from '../shared/exams/present-simple'
-import { presentContinuous } from '../shared/exams/present-continuous'
-import { pastSimple } from '../shared/exams/past-simple'
 import { useAtom } from 'jotai'
-import {
-	isPastSimpleSelectedAtom,
-	isPresentContinuousSelectedAtom,
-	isPresentSimpleSelectedAtom,
-} from '../shared/atoms/store'
+import { selectedTensesAtom } from '../shared/atoms/store'
 
 const ConvertToInitialValues = (exercises: Exercise[]) => {
 	const questionAnswers = exercises.flatMap((exercise) =>
@@ -22,37 +15,29 @@ const ConvertToInitialValues = (exercises: Exercise[]) => {
 }
 
 const PracticePage = (): JSX.Element => {
-	const [isPastSimpleSelected] = useAtom(isPastSimpleSelectedAtom)
-	const [isPresentContinuousSelected, setIsPresentContinuousSelected] = useAtom(
-		isPresentContinuousSelectedAtom
-	)
-	const [isPresentSimpleSelected, setIsPresentSimpleSelected] = useAtom(
-		isPresentSimpleSelectedAtom
-	)
+	const [selectedTenses] = useAtom(selectedTensesAtom)
 
-	if (isPresentSimpleSelected) {
-		console.log('yup!')
-	} else {
-		console.log('nope!')
-	}
-
-	if (
-		!isPastSimpleSelected &&
-		!isPresentSimpleSelected &&
-		!isPresentContinuousSelected
-	) {
-		return <div>ERROR</div>
-	}
+	// if (
+	// 	//!isPastSimpleSelected &&
+	// 	// !isPresentSimpleSelected &&
+	// 	// !isPresentContinuousSelected
+	// 	true
+	// ) {
+	// 	{
+	// 		console.log(selectedTenses)
+	// 	}
+	// 	return <div>{selectedTenses.presentSimple ? 'uhu' : 'nah'}</div>
+	// }
 
 	// Get all relevent exercises in one array and shuffle the array
 	useEffect(() => {
 		const allExercises: string[] = []
 
-		// Add exercises if selected
-		if (isPastSimpleSelected) allExercises.concat(pastSimple.exercises)
-		if (isPresentContinuousSelected)
-			allExercises.concat(presentContinuous.exercises)
-		if (isPresentSimpleSelected) allExercises.concat(presentSimple.exercises)
+		// // Add exercises if selected
+		// if (isPastSimpleSelected) allExercises.concat(pastSimple.exercises)
+		// if (isPresentContinuousSelected)
+		// 	allExercises.concat(presentContinuous.exercises)
+		// if (isPresentSimpleSelected) allExercises.concat(presentSimple.exercises)
 
 		// Shuffle with Fisher-Yates
 		// Source: https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
@@ -64,18 +49,14 @@ const PracticePage = (): JSX.Element => {
 		}
 
 		console.log('present simple:')
-		console.log(isPresentSimpleSelected)
+		console.log(selectedTenses.presentSimple)
 		console.log('past simple:')
-		console.log(isPastSimpleSelected)
+		console.log(selectedTenses.pastSimple)
 		console.log('present continuous:')
-		console.log(isPresentContinuousSelected)
-	}, [
-		isPresentSimpleSelected,
-		isPresentContinuousSelected,
-		isPastSimpleSelected,
-	])
+		console.log(selectedTenses.presentContinouos)
+	}, [selectedTenses])
 
-	return <div>{isPastSimpleSelected}</div>
+	return <div>{selectedTenses.pastSimple}</div>
 }
 
 export default PracticePage
