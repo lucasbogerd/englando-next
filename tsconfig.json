@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"jsx": "preserve",
-		"lib": ["es2020"],
+		"lib": ["dom", "dom.iterable", "es2020"],
 		"downlevelIteration": true,
 		"target": "es5",
 		"allowJs": true,
@@ -15,6 +15,12 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "data/example-test.js"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"data/example-test.js",
+		"shared/logic/useSearchParams.ts"
+	],
 	"exclude": ["node_modules"]
 }

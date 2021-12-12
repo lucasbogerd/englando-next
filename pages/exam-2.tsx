@@ -1,14 +1,12 @@
-import { GetStaticProps } from 'next'
 import { useForm } from 'react-hook-form'
 
 import { Exam, Exercise } from '../shared/types'
 import { presentSimple } from '../shared/exams/present-simple'
 import { parseExam } from '../shared/logic/parseExam'
-import React from 'react'
-
-type Props = {
-	exam: Exam
-}
+import { useEffect } from 'react'
+import useSearchParams from '../shared/logic/useSearchParams'
+import { useState } from 'react'
+import { ExamTypes } from '../shared/exams/exam-types'
 
 const ConvertToInitialValues = (exercises: Exercise[]) => {
 	const questionAnswers = exercises.flatMap((exercise) =>
@@ -18,7 +16,30 @@ const ConvertToInitialValues = (exercises: Exercise[]) => {
 	return questionAnswers
 }
 
-const ExamPage = ({ exam }: Props): JSX.Element => {
+const ExamPage = (): JSX.Element => {
+	// eslint-disable-next-line prefer-const
+	let query: URLSearchParams = useSearchParams()
+	const [selectedExams, setSelectedExams] = useState([])
+	const [exam, setExam] = useState<Exam | undefined>(undefined)
+
+	useEffect(() => {
+		setSelectedExams([])
+		query.forEach((v, k) => {
+			// Check if key exists in ExamTypes (enum)
+			// src: https://github.com/microsoft/TypeScript/issues/33200#issuecomment-527670779
+			if (Object.values(ExamTypes).includes(k as ExamTypes)) {
+				setSelectedExams((selectedExams) => [...selectedExams, k])
+			}
+		})
+		setExam(() => parseExam(presentSimple))
+	}, [query])
+
+	if (!exam) {
+		return <div>No exam found</div>
+	}
+
+	return <div>{exam.Name}</div>
+
 	ConvertToInitialValues(exam.Exercises)
 
 	const {
@@ -92,10 +113,6 @@ const ExamPage = ({ exam }: Props): JSX.Element => {
 			</form>
 		</div>
 	)
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-	return { props: { exam: parseExam(presentSimple) } }
 }
 
 export default ExamPage
