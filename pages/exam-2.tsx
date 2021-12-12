@@ -1,12 +1,11 @@
 import { useForm } from 'react-hook-form'
 
-import { Exam, Exercise } from '../shared/types'
-import { presentSimple } from '../shared/exams/present-simple'
+import { Exam, Exercise, ExamTypes } from '../shared/types'
+import { presentSimple } from '../shared/data/present-simple'
 import { parseExam } from '../shared/logic/parseExam'
 import { useEffect } from 'react'
 import useSearchParams from '../shared/logic/useSearchParams'
 import { useState } from 'react'
-import { ExamTypes } from '../shared/exams/exam-types'
 
 const ConvertToInitialValues = (exercises: Exercise[]) => {
 	const questionAnswers = exercises.flatMap((exercise) =>
@@ -31,6 +30,7 @@ const ExamPage = (): JSX.Element => {
 				setSelectedExams((selectedExams) => [...selectedExams, k])
 			}
 		})
+
 		setExam(() => parseExam(presentSimple))
 	}, [query])
 

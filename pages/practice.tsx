@@ -3,15 +3,15 @@ import { useForm } from 'react-hook-form'
 
 import { Exam, Exercise } from '../shared/types'
 
-import { presentSimple } from '../shared/exams/present-simple'
-import { presentContinuous } from '../shared/exams/present-continuous'
-import { pastSimple } from '../shared/exams/past-simple'
+import { presentSimple } from '../shared/data/present-simple'
+import { presentContinuous } from '../shared/data/present-continuous'
+import { pastSimple } from '../shared/data/past-simple'
 import { useAtom } from 'jotai'
 import {
 	isPastSimpleSelectedAtom,
 	isPresentContinuousSelectedAtom,
 	isPresentSimpleSelectedAtom,
-} from '.'
+} from '../shared/data'
 
 const ConvertToInitialValues = (exercises: Exercise[]) => {
 	const questionAnswers = exercises.flatMap((exercise) =>

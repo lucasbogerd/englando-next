@@ -16,3 +16,9 @@ export type QuestionAnswer = {
 	Question: string
 	Answer: string
 }
+
+export enum ExamTypes {
+	PastSimple = 'past-simple',
+	PresentContinuous = 'present-continuous',
+	PresentSimple = 'present-simple',
+}
