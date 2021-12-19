@@ -1,5 +1,6 @@
 export type UnparsedExam = {
 	name: string
+	type: ExamTypes
 	exercises: string[]
 }
 

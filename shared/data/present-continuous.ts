@@ -1,8 +1,9 @@
-import { UnparsedExam } from '../types'
+import { ExamTypes, UnparsedExam } from '../types'
 
 /* eslint-disable prettier/prettier */
 export const presentContinuous: UnparsedExam = {
 	name: 'Present Continuous',
+	type: ExamTypes.PresentContinuous,
 	exercises: [
 		'My little brother {?watch=is watching} TV right now.',
 		'At the moment it {?rain=is raining}.',

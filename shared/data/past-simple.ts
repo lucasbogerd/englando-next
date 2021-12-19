@@ -1,8 +1,9 @@
-import { UnparsedExam } from '../types'
+import { ExamTypes, UnparsedExam } from '../types'
 
 /* eslint-disable prettier/prettier */
 export const pastSimple: UnparsedExam = {
 	name: 'Past Simple',
+	type: ExamTypes.PastSimple,
 	exercises: [
 		'I {?see=saw} your sister yesterday.',
 		'When we were in Africa, it {?rain=rained} a lot.',
