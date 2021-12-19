@@ -6,7 +6,10 @@ const IndexPage = (): JSX.Element => {
 	const { register, handleSubmit } = useForm()
 
 	const onSubmit = (data) => {
-		router.push(`/exam-2?${new URLSearchParams(data).toString()}`)
+		// check if any value is true
+		if (Object.values(data).some((v) => v === true)) {
+			router.push(`/exam-2?${new URLSearchParams(data).toString()}`)
+		}
 	}
 
 	return (
@@ -102,7 +105,7 @@ const IndexPage = (): JSX.Element => {
 				{/* animate if one or more options selected */}
 				<button
 					type="submit"
-					className="inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black animate-bounce hover:text-englando-black transition duration-300"
+					className={`inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black hover:text-englando-black transition duration-300`}
 				>
 					Go!
 				</button>
