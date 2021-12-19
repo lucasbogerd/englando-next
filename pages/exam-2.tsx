@@ -16,10 +16,13 @@ const ExamPage = (): JSX.Element => {
 
 	useEffect(() => {
 		setSelectedExamTypes([])
-		query.forEach((_v, k) => {
+		query.forEach((v, k) => {
 			// Check if key exists in ExamTypes (enum)
 			// src: https://github.com/microsoft/TypeScript/issues/33200#issuecomment-527670779
-			if (Object.values(ExamTypes).includes(k as ExamTypes)) {
+			if (
+				Object.values(ExamTypes).includes(k as ExamTypes) &&
+				v.toLowerCase() === 'true'
+			) {
 				setSelectedExamTypes((selectedExamTypes) => [
 					...selectedExamTypes,
 					k as ExamTypes,
