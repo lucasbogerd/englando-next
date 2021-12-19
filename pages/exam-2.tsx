@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import useSearchParams from '../shared/logic/useSearchParams'
 import { useState } from 'react'
 import { unparsedExams } from '../shared/data/unparsed-exams'
+import getRandom from '../shared/logic/getRandomItemsFromArray'
 
 const ExamPage = (): JSX.Element => {
 	// eslint-disable-next-line prefer-const
@@ -48,7 +49,7 @@ const ExamPage = (): JSX.Element => {
 				? parseExam({
 						name: 'asdf',
 						type: ExamTypes.PastSimple,
-						exercises: relevantExercises,
+						exercises: getRandom(relevantExercises, 15),
 				  })
 				: undefined
 		)

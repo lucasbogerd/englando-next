@@ -20,7 +20,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"data/example-test.js",
-		"shared/logic/useSearchParams.ts"
+		"shared/logic/useSearchParams.ts",
+		"shared/logic/getRandomItemsFromArray.js"
 	],
 	"exclude": ["node_modules"]
 }
