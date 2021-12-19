@@ -92,7 +92,7 @@ const ExamPage = (): JSX.Element => {
 						return (
 							<li
 								key={`exercise-${i}`}
-								className="p-3 my-3.5 bg-white rounded-md shadow-md"
+								className="p-3 my-5 bg-white rounded-md shadow-md leading-relaxed"
 							>
 								{exercise.Parts.map((part, j) => {
 									if (typeof part === 'string') {
@@ -107,7 +107,7 @@ const ExamPage = (): JSX.Element => {
 											<input
 												name={currentQuestionId}
 												id={currentQuestionId}
-												className={`px-2 py-0.5 w-16 md:w-32 transition duration-500 rounded ${
+												className={`px-2 py-0.5 w-32 md:w-32 transition duration-500 rounded ${
 													errors[currentQuestionId] && isSubmitted
 														? 'bg-red-200'
 														: !errors[currentQuestionId] && isSubmitted
