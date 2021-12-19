@@ -7,6 +7,8 @@ import useSearchParams from '../shared/logic/useSearchParams'
 import { useState } from 'react'
 import { unparsedExams } from '../shared/data/unparsed-exams'
 import getRandom from '../shared/logic/getRandomItemsFromArray'
+import Container from '../components/Container'
+import Button from '../components/Button'
 
 const ExamPage = (): JSX.Element => {
 	// eslint-disable-next-line prefer-const
@@ -61,17 +63,29 @@ const ExamPage = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isSubmitted },
+		formState: { errors, isSubmitted, touchedFields },
 	} = useForm()
 	const onSubmit = (data) => console.log(data)
 
 	return !exam?.Exercises ? (
 		<div>No exercises found</div>
 	) : (
-		<div className="max-w-2xl px-8 pt-8 pb-6 mx-auto bg-blue-100 md:pb-8 md:pt-12">
-			<h1 className="mb-8 text-2xl font-bold">{exam.Name}</h1>
+		<Container>
+			<h1 className="text-2xl mt-2 sm:mt-4 mb-4 font-bold">{exam.Name}</h1>
 
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				onKeyPress={(e) => {
+					// Make 'Enter' focus next input
+					if (e.key === 'Enter') {
+						e.preventDefault()
+						const fields =
+							Array.from(e.currentTarget.querySelectorAll('input')) || []
+						const position = fields.indexOf(e.target as HTMLInputElement)
+						fields[position + 1] && fields[position + 1].focus()
+					}
+				}}
+			>
 				<ul className="mb-8">
 					{exam.Exercises.map((exercise, i) => {
 						let questionCount = -1
@@ -97,7 +111,10 @@ const ExamPage = (): JSX.Element => {
 													errors[currentQuestionId] && isSubmitted
 														? 'bg-red-200'
 														: !errors[currentQuestionId] && isSubmitted
-														? 'bg-green-200'
+														? // && Object.keys(touchedFields).includes(
+														  //	currentQuestionId
+														  // )
+														  'bg-green-200'
 														: 'bg-gray-200'
 												}`}
 												{...register(
@@ -122,14 +139,9 @@ const ExamPage = (): JSX.Element => {
 						)
 					})}
 				</ul>
-				<button
-					type="submit"
-					className="px-4 py-2 text-white transition duration-500 bg-blue-500 rounded-md shadow-md hover:bg-blue-400 focus:shadow-none focus:transform focus:translate-y-0.5 focus:duration-100"
-				>
-					Check
-				</button>
+				<Button type="submit">Check</Button>
 			</form>
-		</div>
+		</Container>
 	)
 }
 
