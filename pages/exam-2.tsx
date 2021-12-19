@@ -50,7 +50,7 @@ const ExamPage = (): JSX.Element => {
 		setExam(() =>
 			selectedExamTypes.length > 0
 				? parseExam({
-						name: 'asdf',
+						name: 'Exercises',
 						type: ExamTypes.PastSimple,
 						exercises: getRandom(relevantExercises, 15),
 				  })
