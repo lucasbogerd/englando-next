@@ -12,9 +12,6 @@ const ExamPage = (): JSX.Element => {
 	let query: URLSearchParams = useSearchParams()
 	const [selectedExamTypes, setSelectedExamTypes] = useState<ExamTypes[]>([])
 	const [exam, setExam] = useState<Exam | undefined>(undefined)
-	const [allExercises, setAllExercises] = useState<string[] | undefined>(
-		undefined
-	)
 
 	useEffect(() => {
 		setSelectedExamTypes([])
@@ -32,7 +29,6 @@ const ExamPage = (): JSX.Element => {
 
 	useEffect(() => {
 		setExam(undefined)
-		setAllExercises(undefined)
 
 		let relevantExercises: string[] = []
 
