@@ -1,46 +1,62 @@
 import { useForm } from 'react-hook-form'
 
-import { Exam, Exercise, ExamTypes } from '../shared/types'
-import { presentSimple } from '../shared/data/present-simple'
+import { Exam, ExamTypes } from '../shared/types'
 import { parseExam } from '../shared/logic/parseExam'
 import { useEffect } from 'react'
 import useSearchParams from '../shared/logic/useSearchParams'
 import { useState } from 'react'
-
-const ConvertToInitialValues = (exercises: Exercise[]) => {
-	const questionAnswers = exercises.flatMap((exercise) =>
-		exercise.Parts.filter((part) => typeof part !== 'string')
-	)
-
-	return questionAnswers
-}
+import { unparsedExams } from '../shared/data/unparsed-exams'
 
 const ExamPage = (): JSX.Element => {
 	// eslint-disable-next-line prefer-const
 	let query: URLSearchParams = useSearchParams()
-	const [selectedExams, setSelectedExams] = useState([])
+	const [selectedExamTypes, setSelectedExamTypes] = useState<ExamTypes[]>([])
 	const [exam, setExam] = useState<Exam | undefined>(undefined)
+	const [allExercises, setAllExercises] = useState<string[] | undefined>(
+		undefined
+	)
 
 	useEffect(() => {
-		setSelectedExams([])
-		query.forEach((v, k) => {
+		setSelectedExamTypes([])
+		query.forEach((_v, k) => {
 			// Check if key exists in ExamTypes (enum)
 			// src: https://github.com/microsoft/TypeScript/issues/33200#issuecomment-527670779
 			if (Object.values(ExamTypes).includes(k as ExamTypes)) {
-				setSelectedExams((selectedExams) => [...selectedExams, k])
+				setSelectedExamTypes((selectedExamTypes) => [
+					...selectedExamTypes,
+					k as ExamTypes,
+				])
 			}
 		})
-
-		setExam(() => parseExam(presentSimple))
 	}, [query])
 
-	if (!exam) {
-		return <div>No exam found</div>
-	}
+	useEffect(() => {
+		setExam(undefined)
+		setAllExercises(undefined)
 
-	return <div>{exam.Name}</div>
+		let relevantExercises: string[] = []
 
-	ConvertToInitialValues(exam.Exercises)
+		for (let i = 0; i < selectedExamTypes.length; i++) {
+			const selectedExamType = selectedExamTypes[i]
+
+			relevantExercises = [
+				...relevantExercises,
+				...unparsedExams.find(
+					(unparsedExam) => unparsedExam.type === selectedExamType
+				).exercises,
+			]
+		}
+
+		setExam(() =>
+			selectedExamTypes.length > 0
+				? parseExam({
+						name: 'asdf',
+						type: ExamTypes.PastSimple,
+						exercises: relevantExercises,
+				  })
+				: undefined
+		)
+	}, [selectedExamTypes])
 
 	const {
 		register,
@@ -49,7 +65,9 @@ const ExamPage = (): JSX.Element => {
 	} = useForm()
 	const onSubmit = (data) => console.log(data)
 
-	return (
+	return !exam?.Exercises ? (
+		<div>No exercises found</div>
+	) : (
 		<div className="max-w-2xl px-8 pt-8 pb-6 mx-auto bg-blue-100 md:pb-8 md:pt-12">
 			<h1 className="mb-8 text-2xl font-bold">{exam.Name}</h1>
 
