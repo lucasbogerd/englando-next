@@ -4,9 +4,12 @@ import {
 	FunctionComponent,
 } from 'react'
 
-const Button: FunctionComponent<
-	DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-> = (props) => {
+type ButtonProps = Omit<
+	DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+	'className'
+>
+
+const Button: FunctionComponent<ButtonProps> = (props) => {
 	// eslint-disable-next-line react/prop-types
 	const { children } = props
 	return (

@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
+import Button from '../components/Button'
+import Container from '../components/Container'
 
 const IndexPage = (): JSX.Element => {
 	const router = useRouter()
@@ -13,7 +15,7 @@ const IndexPage = (): JSX.Element => {
 	}
 
 	return (
-		<div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-englando-rose bg-opacity-50 text-englando-black">
+		<Container>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<h1 className="text-2xl mb-4 font-bold mt-6 sm:mt-14">
 					Choose the tenses you want to practise with:
@@ -103,14 +105,9 @@ const IndexPage = (): JSX.Element => {
 					</div>
 				</fieldset>
 				{/* animate if one or more options selected */}
-				<button
-					type="submit"
-					className={`inline-flex items-center mt-8 px-3.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-englando-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-englando-black hover:text-englando-black transition duration-300`}
-				>
-					Go!
-				</button>
+				<Button type="submit">Go!</Button>
 			</form>
-		</div>
+		</Container>
 	)
 }
 
