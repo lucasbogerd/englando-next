@@ -63,7 +63,7 @@ const ExamPage = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isSubmitted, touchedFields },
+		formState: { errors, isSubmitted },
 	} = useForm()
 	const onSubmit = (data) => console.log(data)
 

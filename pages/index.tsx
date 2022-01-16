@@ -73,6 +73,32 @@ const IndexPage = (): JSX.Element => {
 							</p>
 						</div>
 					</div>
+					<div className="relative flex items-start">
+						<div className="flex items-center h-5">
+							<input
+								id="present-perfect"
+								aria-describedby="present-perfect-description"
+								name="present-perfect"
+								type="checkbox"
+								className="focus:ring-englando-black h-4 w-4 text-englando-lavender border-gray-300 rounded transition duration-300"
+								{...register('present-perfect')}
+							/>
+						</div>
+						<div className="ml-3 text-sm">
+							<label
+								htmlFor="present-perfect"
+								className="font-medium text-gray-700"
+							>
+								Present perfect
+							</label>
+							<p id="present-perfect-description" className="text-gray-500">
+								Example:{' '}
+								<span className="italic">
+									&#34;My brother has studied English for three years.&#34;
+								</span>
+							</p>
+						</div>
+					</div>
 					<h2 className="mt-4 text-englando-lavender font-bold text-lg">
 						Past tenses
 					</h2>
