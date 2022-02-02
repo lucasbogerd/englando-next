@@ -1,4 +1,5 @@
 import { UnparsedExam } from '../types'
+import { pastContinuous } from './past-continuous'
 import { pastSimple } from './past-simple'
 import { presentContinuous } from './present-continuous'
 import { presentPerfect } from './present-perfect'
@@ -9,4 +10,5 @@ export const unparsedExams: UnparsedExam[] = [
 	presentContinuous,
 	presentSimple,
 	presentPerfect,
+	pastContinuous,
 ]

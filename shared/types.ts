@@ -23,4 +23,5 @@ export enum ExamTypes {
 	PresentContinuous = 'present-continuous',
 	PresentSimple = 'present-simple',
 	PresentPerfect = 'present-perfect',
+	PastContinuous = 'past-continuous',
 }
