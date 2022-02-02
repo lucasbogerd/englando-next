@@ -107,7 +107,7 @@ const ExamPage = (): JSX.Element => {
 											<input
 												name={currentQuestionId}
 												id={currentQuestionId}
-												className={`px-2 py-0.5 w-32 md:w-32 transition duration-500 rounded ${
+												className={`px-2 py-0.5 w-48 md:w-60 transition duration-500 rounded ${
 													errors[currentQuestionId] && isSubmitted
 														? 'bg-red-200'
 														: !errors[currentQuestionId] && isSubmitted
