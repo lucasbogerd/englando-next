@@ -1,27 +1,34 @@
 {
-	"compilerOptions": {
-		"jsx": "preserve",
-		"lib": ["dom", "dom.iterable", "es2020"],
-		"downlevelIteration": true,
-		"target": "es5",
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": false,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true
-	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"data/example-test.js",
-		"shared/logic/useSearchParams.ts",
-		"shared/logic/getRandomItemsFromArray.js"
-	],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2020"
+    ],
+    "downlevelIteration": true,
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "data/example-test.js",
+    "shared/logic/useSearchParams.ts",
+    "shared/logic/getRandomItemsFromArray.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
