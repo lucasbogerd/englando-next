@@ -18,7 +18,7 @@ const IndexPage = (): JSX.Element => {
 		<Container>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<h1 className="text-2xl mb-4 font-bold mt-6 sm:mt-14">
-					Choose the tenses you want to practise with:
+					Choose the tenses you want to practise
 				</h1>
 				<fieldset className="space-y-5">
 					<h2 className="mt-4 text-englando-lavender font-bold text-lg">
@@ -61,6 +61,38 @@ const IndexPage = (): JSX.Element => {
 						examNameWithDashes="past-continuous"
 						examNameWithoutDashes="Past continuous"
 						example="My brother was studying English at Cambridge University."
+						register={register}
+					/>
+
+					<h2 className="mt-4 text-englando-lavender font-bold text-lg">
+						Future tenses
+					</h2>
+
+					<ExamOption
+						examNameWithDashes="future-present-simple"
+						examNameWithoutDashes="Present simple"
+						example="My brother studies at Cambridge University."
+						register={register}
+					/>
+
+					<ExamOption
+						examNameWithDashes="future-present-continuous"
+						examNameWithoutDashes="Present continuous"
+						example="My brother is studying at Cambridge University next year."
+						register={register}
+					/>
+
+					<ExamOption
+						examNameWithDashes="future-simple-will"
+						examNameWithoutDashes="Future simple (will)"
+						example="My brother will study at Cambridge University if he passes the entrance exam."
+						register={register}
+					/>
+
+					<ExamOption
+						examNameWithDashes="future-simple-going-to"
+						examNameWithoutDashes="Future simple (going to)"
+						example="My brother is going to study at Cambridge University someday."
 						register={register}
 					/>
 				</fieldset>

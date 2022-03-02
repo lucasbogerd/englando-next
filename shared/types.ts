@@ -24,4 +24,8 @@ export enum ExamTypes {
 	PresentSimple = 'present-simple',
 	PresentPerfect = 'present-perfect',
 	PastContinuous = 'past-continuous',
+	FuturePresentSimple = 'future-present-simple',
+	FuturePresentContinuous = 'future-present-continuous',
+	FutureSimpleWill = 'future-simple-will',
+	FutureSimpleGoingTo = 'future-simple-going-to',
 }

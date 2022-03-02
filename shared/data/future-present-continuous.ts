@@ -1,0 +1,35 @@
+import { ExamTypes, UnparsedExam } from '../types'
+
+/* eslint-disable prettier/prettier */
+export const futurePresentContinuous: UnparsedExam = {
+	name: 'Future Present Continuous',
+	type: ExamTypes.FuturePresentContinuous,
+	exercises: [
+		'We {?work=are working} on a science project next Saturday.',
+		'Next month we {?celebrate=are celebrating} our 25th anniversary.',
+		'I {?meet=am meeting} my boyfriend’s father later tonight.',
+		'That band {?not give=is not giving} a concert next month because of the closing of the venue.',
+		'My sister {?visit=is visiting} her friends in the city centre this afternoon.',
+		'We {?have=are having} a party next weekend.',
+		'He {?cycle=is cycling} 5 miles later today.',
+		'Charlie {?work=is working} on a project with his friends next week.',
+		'{?he go=Is he going} to Aruba next summer?',
+		'I {?dance=am dancing} in a competition in a few months.',
+		'She {?not cook=is not cooking} dinner tonight, I am!',
+		'My mother {?go=is going} to my school tomorrow for a talk with the teacher.',
+		'They {?play=are playing} badminton next Friday.',
+		'She cannot come tomorrow. She {?do=is doing} household chores for her grandmother.',
+		'You should be able to find me at the party on Saturday. I {?plan=am planning} on wearing a bright blue dress.',
+		'My father {?learn=is learning} by little brother how to ride a bicycle later today.',
+		'Michael {?not play=is not playing} a video game with us tonight; he has other plans.',
+		'They {?not go=are not going} to France next summer holiday.',
+		'My parents {?walk=are walking} all the way to another city next month.',
+		'My father {?cook=is cooking} for us tonight. I hope it is any good…',
+		'My brother {?prepare=is preparing} for his exams next week.',
+		'My sister {?buy=is buying} her first car in a couple of days.',
+		'George {?swim=is swimming} 10 miles for a competition next Sunday.',
+		'My neighbour {?water=is watering} our plants when we are on holiday next week.',
+		'We {?visit=are visiting} the zoon in the afternoon.',
+		'My teacher {?help=is helping} me with my task after school.',
+	],
+}

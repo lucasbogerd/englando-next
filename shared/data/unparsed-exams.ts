@@ -1,4 +1,8 @@
 import { UnparsedExam } from '../types'
+import { futurePresentContinuous } from './future-present-continuous'
+import { futurePresentSimple } from './future-present-simple'
+import { futureSimpleGoingTo } from './future-simple-going-to'
+import { futureSimpleWill } from './future-simple-will'
 import { pastContinuous } from './past-continuous'
 import { pastSimple } from './past-simple'
 import { presentContinuous } from './present-continuous'
@@ -11,4 +15,8 @@ export const unparsedExams: UnparsedExam[] = [
 	presentSimple,
 	presentPerfect,
 	pastContinuous,
+	futurePresentSimple,
+	futurePresentContinuous,
+	futureSimpleWill,
+	futureSimpleGoingTo,
 ]
