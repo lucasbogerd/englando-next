@@ -3,7 +3,7 @@ import { ExamTypes, UnparsedExam } from '../types'
 /* eslint-disable prettier/prettier */
 export const futurePresentSimple: UnparsedExam = {
 	name: 'Future Present Simple',
-	type: ExamTypes.PresentPerfect,
+	type: ExamTypes.FuturePresentSimple,
 	exercises: [
 		'The train to Norwich {?depart=departs} at 9 o’clock.',
 		'According to our time schedule, we {?start=start} with French and then German.',
