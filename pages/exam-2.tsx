@@ -125,6 +125,10 @@ const ExamPage = (): JSX.Element => {
 															value.toLowerCase() === part.Answer.toLowerCase(),
 													}
 												)}
+												autoComplete="off"
+												autoCapitalize='off'
+												autoCorrect='off'
+												spellCheck='false'
 											/>
 											<label
 												htmlFor={`exercise-${i}_question-${questionCount}`}
