@@ -8,6 +8,8 @@ import { pastSimple } from './past-simple'
 import { presentContinuous } from './present-continuous'
 import { presentPerfect } from './present-perfect'
 import { presentSimple } from './present-simple'
+import { pastPerfect } from './past-perfect'
+import { presentPerfectContinuous } from './present-perfect-continuous'
 
 export const unparsedExams: UnparsedExam[] = [
 	pastSimple,
@@ -19,4 +21,6 @@ export const unparsedExams: UnparsedExam[] = [
 	futurePresentContinuous,
 	futureSimpleWill,
 	futureSimpleGoingTo,
+	pastPerfect,
+	presentPerfectContinuous
 ]

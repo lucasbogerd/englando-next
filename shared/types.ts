@@ -20,10 +20,12 @@ export type QuestionAnswer = {
 
 export enum ExamTypes {
 	PastSimple = 'past-simple',
-	PresentContinuous = 'present-continuous',
+	PastContinuous = 'past-continuous',
+	PastPerfect = 'past-perfect',
 	PresentSimple = 'present-simple',
 	PresentPerfect = 'present-perfect',
-	PastContinuous = 'past-continuous',
+	PresentContinuous = 'present-continuous',
+	PresentPerfectContinuous = 'present-perfect-continuous',
 	FuturePresentSimple = 'future-present-simple',
 	FuturePresentContinuous = 'future-present-continuous',
 	FutureSimpleWill = 'future-simple-will',

@@ -36,10 +36,10 @@ export const futureSimpleWill: UnparsedExam = {
 		'She {?talk=will talk} to you tomorrow as promised.',
 		'I hope you {?feel=will feel} better soon.',
 		'I think I {?have=will have} a pizza.',
-		'You {meet=will meet} a dark and handsome stranger.',
+		'You {?meet=will meet} a dark and handsome stranger.',
 		'My sister hopes she {?pass=will pass} her driving test this time.',
 		'{?we go=Shall we go} out to dinner tonight?',
 		'I {?not tell=will not tell} her anything about this conversation.',
-		'Don’t worry, I know you [?make=will make} it.',
+		'Don’t worry, I know you {?make=will make} it.',
 	],
 }

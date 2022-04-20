@@ -46,6 +46,13 @@ const IndexPage = (): JSX.Element => {
 						register={register}
 					/>
 
+					<ExamOption
+						examNameWithDashes='present-perfect-continuous'
+						examNameWithoutDashes='Present perfect continuous'
+						example="My brother has been studying English for a long time."
+						register={register}
+					/>
+
 					<h2 className="mt-4 text-englando-lavender font-bold text-lg">
 						Past tenses
 					</h2>
@@ -61,6 +68,13 @@ const IndexPage = (): JSX.Element => {
 						examNameWithDashes="past-continuous"
 						examNameWithoutDashes="Past continuous"
 						example="My brother was studying English at Cambridge University."
+						register={register}
+					/>
+
+					<ExamOption
+						examNameWithDashes='past-perfect'
+						examNameWithoutDashes='Past perfect'
+						example='My brother had studied English before he got a job.'
 						register={register}
 					/>
 

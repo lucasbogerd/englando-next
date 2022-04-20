@@ -68,6 +68,6 @@ export const presentContinuous: UnparsedExam = {
 		'George {?swim=is swimming} 10 miles for a competition next Sunday.',
 		'My neighbour {?water=is watering} our plants when we are on holiday next week.',
 		'We {?visit=are visiting} the zoon in the afternoon.',
-		'My teacher [?help=is helping} me with my task after school.',
+		'My teacher {?help=is helping} me with my task after school.',
 	],
 }

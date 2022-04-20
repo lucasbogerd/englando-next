@@ -7,7 +7,7 @@ export const futurePresentSimple: UnparsedExam = {
 	exercises: [
 		'The train to Norwich {?depart=departs} at 9 o’clock.',
 		'According to our time schedule, we {?start=start} with French and then German.',
-		'Unfortunately, because of the changes made in the public transport system, my bus {?not leave= does not leave} for another 45 minutes.',
+		'Unfortunately, because of the changes made in the public transport system, my bus {?not leave=does not leave} for another 45 minutes.',
 		'My class {?begin=begins} at 8.20.',
 		'Hurry up! I do not want to miss any of the game. It {?kick=kicks} off at one o’clock.',
 		'He will be here soon. His plane {?arrive=arrives} at 6:45.',
